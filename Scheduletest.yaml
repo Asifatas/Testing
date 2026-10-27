@@ -1,0 +1,23 @@
+trigger: none
+
+schedules:
+- cron: '0 6 1-7 * 1'
+  displayName: First Monday schedule
+  branches:
+    include:
+    - main
+  always: true
+
+- cron: '0 6 15-21 * 1'
+  displayName: Third Monday schedule
+  branches:
+    include:
+    - main
+  always: true
+
+pool:
+  vmImage: windows-latest
+
+steps:
+- script: echo "Testing schedule synchronization"
+  displayName: Test schedule
